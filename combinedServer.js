@@ -10,13 +10,11 @@ const verifyToken = require("./middleware/auth");
 const app = express();
 app.use(express.json());
 const corsOptions = {
-  origin: [
-    "http://localhost:3000",
-    "https://crowdfunding-app-quy4312s-projects.vercel.app",
-  ],
+  origin: "*",
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true,
   allowedHeaders: "Content-Type,Authorization",
+  maxAge: -1,
 };
 app.use(cors(corsOptions));
 
