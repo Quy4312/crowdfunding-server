@@ -137,7 +137,11 @@ app.get("/api/campaigns", verifyToken, (req, res) => {
 app.get("/api/users", verifyToken, (req, res) => {
   res.json(database.users);
 });
-
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+const HOST = "0.0.0.0";
+const PORT = process.env.PORT || 4001;
+app.listen(PORT, HOST, () =>
+  console.log(`Server is running on http://${PORT}:${HOST}`)
+);
+// app.listen(PORT, () => {
+//   console.log(`Server is running on port ${PORT}`);
+// });
