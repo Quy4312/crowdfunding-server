@@ -9,7 +9,9 @@ const verifyToken = require("./middleware/auth");
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({ origin: "https://crowdfunding-app-quy4312s-projects.vercel.app/" })
+);
 
 let rawdata = fs.readFileSync("db.json");
 let database = JSON.parse(rawdata);
@@ -113,5 +115,5 @@ app.get("/api/users", verifyToken, (req, res) => {
 const HOST = "0.0.0.0";
 const PORT = 3000;
 app.listen(PORT, HOST, () =>
-  console.log(`Server is running on http://${HOST}:${PORT}`)
+  console.log(`Server is running on http://${PORT}:${HOST}`)
 );
