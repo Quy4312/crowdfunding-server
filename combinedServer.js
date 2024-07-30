@@ -9,9 +9,7 @@ const verifyToken = require("./middleware/auth");
 
 const app = express();
 app.use(express.json());
-app.use(
-  cors({ origin: "https://crowdfunding-app-quy4312s-projects.vercel.app/" })
-);
+app.use(cors());
 
 let rawdata = fs.readFileSync("db.json");
 let database = JSON.parse(rawdata);
