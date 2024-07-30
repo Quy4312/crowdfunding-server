@@ -18,7 +18,7 @@ const corsOptions = {
   maxAge: -1,
 };
 app.use(cors(corsOptions));
-app.options("*", cors(corsOptions));
+// app.options("*", cors(corsOptions));
 
 let rawdata = fs.readFileSync("db.json");
 let database = JSON.parse(rawdata);
