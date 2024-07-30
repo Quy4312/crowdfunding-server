@@ -9,7 +9,16 @@ const verifyToken = require("./middleware/auth");
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+const corsOptions = {
+  origin: [
+    "http://localhost:3000",
+    "https://crowdfunding-app-quy4312s-projects.vercel.app",
+  ],
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials: true,
+  allowedHeaders: "Content-Type,Authorization",
+};
+app.use(cors(corsOptions));
 
 let rawdata = fs.readFileSync("db.json");
 let database = JSON.parse(rawdata);
