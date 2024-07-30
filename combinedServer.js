@@ -106,6 +106,9 @@ app.use("/api", jsonServer.defaults(), jsonServer.router("db.json"));
 app.get("/api/campaigns", verifyToken, (req, res) => {
   res.json(database.campaigns);
 });
+app.get("/api/users", verifyToken, (req, res) => {
+  res.json(database.users);
+});
 
 const HOST = "0.0.0.0";
 const PORT = 3000;
